@@ -1,6 +1,12 @@
 # TransportationCollective
 An app for the Transportation Collective
 
+##Getting Started for IPRO folks
+Make sure you add this git as an origin
+```
+git remote add origin https://github.com/vkoves/TransportationCollective.git
+```
+
 
 # php-getting-started
 
