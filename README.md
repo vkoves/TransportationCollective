@@ -7,6 +7,14 @@ Make sure you add this git as an origin
 git remote add origin https://github.com/vkoves/TransportationCollective.git
 ```
 
+##Workflow
+- Pull from origin
+- Make changes
+- Push to origin
+- Push to Heroku
+
+See your changes on [Heroku](http://aqueous-wildwood-43521.herokuapp.com/)!
+
 
 # php-getting-started
 
