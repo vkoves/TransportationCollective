@@ -6,7 +6,17 @@
 {
 	font-size: 24px !important;
 }
+
+/* Normal layout */
 .mdl-layout--large-screen-only.mdl-layout__header-row
 {
 	margin-top: 20px;
+	margin-bottom: -10px;
 }
+/* Mobile layout */
+.mdl-layout.is-small-screen .mdl-layout--large-screen-only
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
