@@ -1,0 +1,452 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"snea",
+				"sneak-peak"
+			],
+			[
+				"leve",
+				"finishLevel"
+			],
+			[
+				"level",
+				"levelNumber"
+			],
+			[
+				"vel",
+				"velx"
+			],
+			[
+				"scale",
+				"scaleSpeed"
+			],
+			[
+				"partic",
+				"particleCount"
+			],
+			[
+				"hear",
+				"spawnHeart"
+			],
+			[
+				"object",
+				"objectsArr"
+			],
+			[
+				"obj",
+				"objectsArr"
+			],
+			[
+				"back",
+				"backgroundImage"
+			],
+			[
+				"bgIm",
+				"backgroundImage"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"hi",
+				"hideUp"
+			],
+			[
+				"start",
+				"start-screen"
+			],
+			[
+				"game-",
+				"game-window"
+			],
+			[
+				"i",
+				"important"
+			],
+			[
+				"Presentati",
+				"PresentationLargeScreen"
+			],
+			[
+				"results",
+				"results-ticket"
+			],
+			[
+				"magin",
+				"margin-bottom"
+			],
+			[
+				"play",
+				"playlist-box"
+			],
+			[
+				"spoty",
+				"spotify-icon"
+			],
+			[
+				"ifra",
+				"iframe-holder"
+			],
+			[
+				"fullNo",
+				"fullNote2"
+			],
+			[
+				"full",
+				"fullNote2"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"ready",
+				"readyFunction"
+			],
+			[
+				"ameri",
+				"americanExpressIcon"
+			],
+			[
+				"din",
+				"dinersClubIcon"
+			],
+			[
+				"prevent",
+				"preventDefault"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 368.0,
+		"selected_items":
+		[
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 480.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/lowvoltage.css",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/lowvoltage.html",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/HAL9000.svg",
+		"/C/Users/Viktor/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/new/speed-of-time.html",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/new/index.html",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/projects/InClouds/index.html",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/new/about.html",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/new/projects.html",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/new/contact.html",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/new/css/about.css",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/new/sneek-peek.html",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/main.css",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/valentines2016.html",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/valentines2016.css",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/valentines2016.js",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/heart.svg",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/sandbox.html",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/sandbox.css",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/tn.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/tn1min.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/tn-new.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/test556.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/test555.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/seaticsCopy.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/text-change.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/Checkout/New/text-change.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/tn1min-1-23-2016 Backup.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/test556OLD.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/Production/cap-cyprus.min.css",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/cap-cyprus.min2.css",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/Production/topcontent1min.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/topcontent1.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/Checkout/New/checkout-new.css",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/Production/checkout.css",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/Checkout/New/checkout-new.min.css",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/portfolio.html",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/about.html",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/index.html",
+		"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/main.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/guarantee.css",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/Production/guarantee.min.css",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/Production/venue.css",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/venue2.css",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/Production/topcontent1.js",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/Checkout/Stadium-BoxOffice.com - Checkout.html",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/new/css/base.css",
+		"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/Checkout/checkout.css",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/humans.txt",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/projects/InClouds/css/main.css",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/index.html",
+		"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/robots.txt"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"cover",
+			"speed = ",
+			"velx",
+			"console.log",
+			"spawnHeart",
+			"reset",
+			"succes",
+			"heartsCollected",
+			"reset()",
+			"main()",
+			"reset",
+			"update",
+			"player",
+			"spawnHeart",
+			"spawnParticl",
+			"scaleSpeed",
+			"scale",
+			"scalespeed",
+			"particle",
+			"0.5",
+			"scaleSpeed",
+			"heartsColl",
+			"\"partic",
+			"particle",
+			"obj.opacity",
+			"opacity",
+			"update",
+			"velx",
+			"\"heart\"",
+			"spawnH",
+			"up",
+			"background",
+			"then = ",
+			"ctx",
+			"reset",
+			"hero",
+			">\n",
+			"start",
+			"readyFunc",
+			"readyFun",
+			"tooltip",
+			"ticketData",
+			"tgmarktooltiptext",
+			"console.log",
+			"console.og",
+			"jsFiles",
+			"seaticsCopy.js",
+			"mapAndList",
+			"id=\"filters\"",
+			"id=\"filters",
+			"wrapper",
+			"id=\"wrapper",
+			"#wrapper",
+			"mapAndList",
+			"id=\"tickets-table\"",
+			".guarantee",
+			"PresentationLargeScreen",
+			"i.ticketli",
+			"/*",
+			"js",
+			"/*",
+			"//",
+			"setup",
+			"each",
+			".each",
+			"phone",
+			"ticketListRender",
+			"rendermethod",
+			"et();",
+			"render",
+			"lt",
+			"et()",
+			"et();",
+			"bt",
+			"renderTick",
+			"bt(",
+			"bt",
+			"ei()",
+			"legend",
+			"renderTickets",
+			"renderTicketsList",
+			"render",
+			"/*",
+			"//",
+			"getfilteroptions",
+			"li(",
+			"ri()",
+			"li(",
+			"ri()",
+			"setupFilters",
+			"SetupFilters",
+			"setupFIlters",
+			"ri()",
+			"ri*(",
+			"ri",
+			"r1",
+			"$(\".",
+			"keypress",
+			"largescreen.setupLayout",
+			"/*",
+			"//",
+			"setupLayout",
+			".presentationlargescreen.mapandlist",
+			"url",
+			"ui = fun",
+			"ri()",
+			"ri",
+			"wt",
+			"wt,",
+			"wt",
+			"t.left + r",
+			"t.left",
+			"et()",
+			"/*",
+			"appendTo",
+			"nouislider.create",
+			"nouislider",
+			"RvGzz",
+			"a ",
+			"a",
+			"presentationlargescreen",
+			"presentationlargescreem",
+			"nouislider",
+			"Seatics.PresentationLargeScreen=",
+			"Seatics.PresentationLargeScreen",
+			"getStep",
+			"ton",
+			"refUrl"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"sandbox",
+				"sandbox.html"
+			],
+			[
+				"nai",
+				"/C/Users/Viktor/Documents/GitHub/indigoBox-Website/new/js/main.js"
+			],
+			[
+				"test5",
+				"/C/Users/Viktor/Documents/Viktor/Work/Ticket Mini Sites/January 6th Files/test555.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/C/Users/Viktor/Documents/GitHub/vkoves.github.io/vkoves.github.io.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
