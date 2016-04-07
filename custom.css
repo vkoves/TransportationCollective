@@ -20,3 +20,58 @@
 	margin-bottom: 0px;
 }
 
+/* Report problem button */
+#view-source
+{
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
+}
+
+/* Rytis CSS begins here */
+.mdl-textfield
+{
+	padding: 20px;
+}
+
+.mdl-textfield
+{
+	padding: 20px;
+}
+
+.mdl-demo section .section__circle-container > .section__circle-container__circle
+{
+	width: 32px;
+	height: 32px;
+}
+
+#green-line
+{
+	background-color: green!important;
+}
+
+#red-line
+{
+	background-color: red!important;
+}
+
+#orange-line
+{
+	background-color: orange!important;
+}
+
+#view-source
+{
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  z-index: 900;
+}
+ /* End Rytis CSS */
