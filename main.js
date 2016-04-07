@@ -16,13 +16,15 @@ $(document).ready(function()
 
 	$("#add-stop").click(function()
 	{
-		//submit data
-		var lineName = $("#line-choices .circle.selected").attr("class").split(" ")[1];
-		var stopName = $("#line-name").val();
-		addStop(lineName, stopName);
-		//clear data
-		$("#line-choices .circle").removeClass("selected");
-		$("#line-name").val("");
+		parseStopAdder();
+	});
+
+	$("#line-name").keypress(function(e)
+	{
+		if(e.keyCode == 13)
+		{
+			parseStopAdder();
+		}
 	});
 
 	$(".stop-listing .delete").click(function()
@@ -54,6 +56,23 @@ function showFavoriteStops()
 		var stopName = stop[1];
 		appendStopDiv(lineName, stopName);
 	}
+}
+
+function parseStopAdder()
+{
+	if($("#line-choices .circle.selected").length == 0) //if there is not a selected line
+	{
+		alert("Please select a line!");
+		return;
+	}
+
+	//submit data
+	var lineName = $("#line-choices .circle.selected").attr("class").split(" ")[1];
+	var stopName = $("#line-name").val();
+	addStop(lineName, stopName);
+	//clear data
+	$("#line-choices .circle").removeClass("selected");
+	$("#line-name").val("");
 }
 
 function addStop(lineName, stopName)
