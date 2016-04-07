@@ -5,8 +5,6 @@ var stopCookie = "";
 $(document).ready(function()
 {
 	//Cookies tutorial http://www.w3schools.com/js/js_cookies.asp
-	document.cookie = defaultStopCookie;
-	console.log("Set cookies! \"" + document.cookie + "\"");
 
 	showFavoriteStops();
 
@@ -39,7 +37,10 @@ function showFavoriteStops()
 {
 	var cookieString = defaultStopCookie;
 	if(document.cookie.length > 0)
+	{
 		cookieString = document.cookie;
+		console.log("Found valid cookie: " + document.cookie);
+	}
 
 	var arr = cookieString.split("favoriteStops=");
 	stopCookie = arr[arr.length - 1];
