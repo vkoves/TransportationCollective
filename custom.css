@@ -32,6 +32,43 @@
   z-index: 900;
 }
 
+/* Line circles */
+.circle
+{
+	width: 28px;
+	height: 28px;
+	border-radius: 100px;
+}
+.circle.red {background: #D11D2C;}
+.circle.blue {background: #01A1DD;}
+.circle.green {background: #00964D;}
+.circle.purple {background: #4B308A;}
+.circle.brown {background: #633D21;}
+.circle.yellow {background: #FBD704;}
+.circle.orange {background: #EF4B24;}
+.circle.pink {background: #EC82A7;}
+
+/* Stop Listing */
+.stop-listing
+{
+	background: white;
+    margin: 10px 20px;
+    padding: 10px;
+    height: 30px;
+    color: #171717;
+    font-size: 20px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+.stop-listing .stop-name
+{
+	margin-top: 5px;
+}
+.stop-listing .circle
+{
+	float: left;
+	margin-right: 10px;
+}
+
 /* Rytis CSS begins here */
 .mdl-textfield
 {
