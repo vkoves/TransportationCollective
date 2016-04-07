@@ -12,7 +12,7 @@ $(document).ready(function()
 function showFavoriteStops()
 {
 	var arr = document.cookie.split("favoriteStops=");
-	var stopString = arr[arr.length];
+	var stopString = arr[arr.length - 1];
 	var stopArray = stopString.split(",");
 	console.log("Stop arr: ");
 	console.log(stopArray);
