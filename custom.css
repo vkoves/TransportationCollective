@@ -39,25 +39,40 @@
 	height: 28px;
 	border-radius: 100px;
 }
-.circle.red {background: #D11D2C;}
-.circle.blue {background: #01A1DD;}
-.circle.green {background: #00964D;}
-.circle.purple {background: #4B308A;}
-.circle.brown {background: #633D21;}
-.circle.yellow {background: #FBD704;}
-.circle.orange {background: #EF4B24;}
-.circle.pink {background: #EC82A7;}
+.circle.red {background-color: #D11D2C;}
+.circle.blue {background-color: #01A1DD;}
+.circle.green {background-color: #00964D;}
+.circle.purple {background-color: #4B308A;}
+.circle.brown {background-color: #633D21;}
+.circle.yellow {background-color: #FBD704;}
+.circle.orange {background-color: #EF4B24;}
+.circle.pink {background-color: #EC82A7;}
+.circle.selected {
+	background-image: url("images/checkmark.svg");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
 /* Stop Listing */
+#settings-title
+{
+	margin-right: 30px;
+	margin-bottom: 0px;
+}
+#stops-list
+{
+	width: 100%;
+}
 .stop-listing
 {
+	position: relative;
 	background: white;
-    margin: 10px 20px;
+    margin: 10px 0px;
     padding: 10px;
     height: 30px;
     color: #171717;
     font-size: 20px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 .stop-listing .stop-name
 {
@@ -67,6 +82,78 @@
 {
 	float: left;
 	margin-right: 10px;
+}
+.stop-listing .delete
+{
+	cursor: pointer;
+	background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("images/bin.svg");
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background-color: #BDBDBD;
+    border-radius: 5px;
+    transition: box-shadow 0.2s;
+}
+.stop-listing .delete:hover
+{
+    box-shadow: 0px 0px 5px black;
+}
+#add-stop
+{
+	cursor: pointer;
+	position: relative;
+    top: 5px;
+    font-size: 18px;
+    background: #4CAF50;
+    color: white;
+    padding: 5px 15px;
+    transition: background 0.2s;
+}
+#stop-add-box
+{
+	width: 100%;
+	height: auto;
+}
+#stop-add-box input
+{
+    position: relative;
+    top: -3px;
+	height: 20px;
+    padding: 0px 5px;
+    margin-left: 5px;
+}
+#line-cont
+{
+	position: relative;
+	margin-top: 5px;
+}
+#line-choices
+{
+	position: absolute;
+	display: inline-block;
+	top: -3px;
+	left: 50px;
+}
+#line-choices .circle
+{
+	cursor: pointer;
+}
+#line-choices .circle:hover
+{
+	box-shadow: 0px 0px 5px grey;
+}
+#add-stop:hover
+{
+	background: #369A3A;
+}
+.stop-listing, #add-stop
+{
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
 
 /* Rytis CSS begins here */

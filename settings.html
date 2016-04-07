@@ -71,8 +71,31 @@
 
       <main class="mdl-layout__content">
         <div class="mdl-layout__tab-panel is-active" id="overview" style="padding: 0px">
+
+          <section class="section--center mdl-grid mdl-grid--no-spacing">
           <!-- Insert content here -->
-          <h3 style="margin-left: 30px;">Favorite Stops</h3>
+          <h3 id="settings-title">Favorite Stops</h3>
+          <div id="stops-list">
+          </div>
+          <div id="stop-add-box" class="stop-listing">
+            <div id="line-cont">
+            Line:
+            <div id="line-choices">
+              <div class="circle red"></div>
+              <div class="circle blue"></div>
+              <div class="circle brown"></div>
+              <div class="circle purple"></div>
+              <div class="circle green"></div>
+              <div class="circle orange"></div>
+              <div class="circle pink"></div>
+              <div class="circle yellow"></div>
+            </div>
+          </div>
+            <br>
+            Name: <input id="line-name"type="text" placeholder="Stop name">
+          </div>
+          <span id="add-stop">Add Stop</span>
+        </section>
         </div>
         <br>
         <footer class="mdl-mega-footer">
@@ -92,6 +115,7 @@
         </footer>
       </main>
     </div>
+    <a href="report.html" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Report Problem</a>
     <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   </body>
 </html>
