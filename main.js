@@ -77,8 +77,16 @@ function parseStopAdder()
 
 function addStop(lineName, stopName)
 {
-	document.cookie = "favoriteStops=" + stopCookie + "," + lineName + ":" + stopName;
+	stopCookie = "favoriteStops=" + stopCookie + "," + lineName + ":" + stopName;
+	document.cookie = stopCookie;
 	appendStopDiv(lineName, stopName);
+
+	$(".stop-listing .delete").click(function()
+	{
+		var parent = $(this).parent();
+		parent.slideUp();
+		removeStop(parent.attr("data-line"), parent.attr("data-stop"));
+	});
 }
 
 function removeStop(lineName, stopName)
