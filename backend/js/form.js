@@ -66,7 +66,7 @@ function drawChart() {
 
 
 function lineIssues() {
-	var queryString = encodeURIComponent('SELECT D,F');
+	var queryString = encodeURIComponent('SELECT D, count(*) OFFSET 1');
 	var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit#gid=1575241258&headers=1&tq=' + queryString);
     query.send(lineIssuesQuery);
