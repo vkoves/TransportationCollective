@@ -60,3 +60,25 @@ function drawChart() {
 
         table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
   }
+  
+
+
+
+
+function lineIssues() {
+	var queryString = encodeURIComponent('SELECT D,F');
+	var query = new google.visualization.Query(
+          'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit#gid=1575241258&headers=1&tq=' + queryString);
+    query.send(lineIssuesQuery);
+}
+function lineIssuesQuery(response) {
+	if (response.isError()) {
+		alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+		return;
+    }
+    
+    var data = response.getDataTable();
+    
+    var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
+	chart.draw(data, null);
+}
