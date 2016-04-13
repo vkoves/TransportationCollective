@@ -46,6 +46,6 @@ function drawChart() {
     }
 
     var data = response.getDataTable();
-    visualization = new google.visualization.LineChart(document.getElementById('visualization'));
+    visualization = new google.visualization.LineChart(document.getElementById('myPieChart'));
     visualization.draw(data, {legend: 'bottom'});
   }
