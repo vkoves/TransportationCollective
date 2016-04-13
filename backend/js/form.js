@@ -22,7 +22,8 @@ function drawChart() {
 	var query = new google.visualization.Query(
         //'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1');
         //'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit#gid=1575241258'
-        'https://spreadsheets.google.com/tq?key=1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI&pub=1');
+        //'https://spreadsheets.google.com/tq?key=1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI&pub=1');
+        'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit?usp=sharing');
         
     console.log(query);
 }
