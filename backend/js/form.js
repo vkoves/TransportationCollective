@@ -56,6 +56,7 @@ function drawChart() {
     /*visualization = new google.visualization.LineChart(document.getElementById('myPieChart'));
     visualization.draw(data, {legend: 'bottom'});*/
    
-   var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
-   chart.draw(data, null);
+   var table = new google.visualization.Table(document.getElementById('myPieChart'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
   }
