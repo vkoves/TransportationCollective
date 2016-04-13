@@ -29,14 +29,20 @@ function drawChart() {
 //}
 
 //function drawVisualization() {
+    //var query = new google.visualization.Query(
+    //    'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1');
+    
+    var queryString = encodeURIComponent('SELECT D LIMIT 20');
+    
     var query = new google.visualization.Query(
-        'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1');
+          'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit#gid=1575241258&headers=1&tq=' + queryString);
+      query.send(handleQueryResponse);
 
     // Apply query language statement.
-    query.setQuery('SELECT A,D WHERE D > 100 ORDER BY D');
+    //query.setQuery('SELECT A,D WHERE D > 100 ORDER BY D');
     
     // Send the query with a callback function.
-    query.send(handleQueryResponse);
+    //query.send(handleQueryResponse);
   }
 
   function handleQueryResponse(response) {
