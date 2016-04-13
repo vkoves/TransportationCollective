@@ -52,6 +52,7 @@ function drawChart() {
     }
 
     var data = response.getDataTable();
+    console.log(data);
     /*visualization = new google.visualization.LineChart(document.getElementById('myPieChart'));
     visualization.draw(data, {legend: 'bottom'});*/
    
