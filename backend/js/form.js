@@ -79,6 +79,8 @@ function lineIssuesQuery(response) {
     
     var data = response.getDataTable();
     
+    console.log(data);
+    
     var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
 	chart.draw(data, null);
 }
