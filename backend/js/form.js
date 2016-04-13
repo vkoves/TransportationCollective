@@ -31,7 +31,7 @@ function drawChart() {
 //function drawVisualization() {
     //var query = new google.visualization.Query(
     //    'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1');
-    
+     google.charts.load('current', {packages: ['table']});
     var queryString = encodeURIComponent('SELECT D,R LIMIT 20');
     
     var query = new google.visualization.Query(
