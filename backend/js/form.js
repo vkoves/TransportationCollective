@@ -14,6 +14,6 @@ function lineIssuesQuery(response) {
     
     console.log(data);
     
-    var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
+    var chart = new google.visualization.Table(document.getElementById('myPieChart'));
 	chart.draw(data, null);
 }
