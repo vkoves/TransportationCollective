@@ -52,8 +52,6 @@
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <!-- Main JS -->
-    <script src="main.js"></script>
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -63,9 +61,9 @@
         </div><br>
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
           <a href="index.html" class="mdl-layout__tab">Route</a>
-          <a href="status.html" class="mdl-layout__tab">Status</a>
+          <a href="status.html" class="mdl-layout__tab is-active">Status</a>
           <a href="report.html" class="mdl-layout__tab">Report</a>
-          <a href="settings.html" class="mdl-layout__tab is-active">Settings</a>
+          <a href="settings.html" class="mdl-layout__tab">Settings</a>
         </div>
       </header>
 
@@ -74,29 +72,7 @@
 
           <section class="section--center mdl-grid mdl-grid--no-spacing">
           <!-- Insert content here -->
-          <h3 id="settings-title">Favorite Stops</h3>
-          <div id="stops-list">
-          </div>
-          <div id="stop-add-box" class="stop-listing">
-            <h4>New Stop</h4>
-            <div id="line-cont">
-            Line: <br class="line-choices-break">
-            <div id="line-choices">
-              <div class="circle red"></div>
-              <div class="circle blue"></div>
-              <div class="circle brown"></div>
-              <div class="circle purple"></div>
-              <div class="circle green"></div>
-              <div class="circle orange"></div>
-              <div class="circle pink"></div>
-              <div class="circle yellow"></div>
-            </div>
-          </div>
-            <br>
-            Stop Name:
-            <input id="line-name"type="text" placeholder="Stop name">
-          </div>
-          <span id="add-stop">Add Stop</span>
+          <h3 id="settings-title">Status</h3>
         </section>
         </div>
         <br>
