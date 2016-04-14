@@ -66,11 +66,11 @@ function drawChart() {
 
 
 function lineIssues() {
-	var queryString = encodeURIComponent('SELECT D, count(*) OFFSET 1');
+	//var queryString = encodeURIComponent('SELECT D, count(*) OFFSET 1');
+	var opts = {sendMethod: 'auto'};
 	var query = new google.visualization.Query(
-          'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit#gid=1575241258&headers=1&tq=' + queryString);
+          'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit#gid=1575241258&headers=1', opts);//&tq=' + queryString);
     query.setQuery('SELECT D, count(*) OFFSET 1');
-    
     query.send(lineIssuesQuery);
 }
 function lineIssuesQuery(response) {
