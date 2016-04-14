@@ -1,88 +1,47 @@
-//		https://spreadsheets.google.com/tq?&tq=&key=1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI&gid=2
-
-function drawChart() {
-	// Define the chart to be drawn.
-	/*
-	var data = new google.visualization.DataTable();
-	data.addColumn('string', 'Element');
-	data.addColumn('number', 'Percentage');
-	data.addRows([
-		['Nitrogen', 0.78],
-		['Oxygen', 0.21],
-		['Other', 0.01]
-	]);
-	
-	// Instantiate and draw the chart.
-	var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
-	chart.draw(data, null);
-	*/
-	
-	
-	
-	//var query = new google.visualization.Query(
-        //'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1');
-        //'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit#gid=1575241258'
-        //'https://spreadsheets.google.com/tq?key=1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI&pub=1');
-    //    'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit?usp=sharing');
-        
-    //console.log(query);
-//}
-
-//function drawVisualization() {
-    //var query = new google.visualization.Query(
-    //    'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1');
-     
-    var queryString = encodeURIComponent('SELECT D,R LIMIT 20');
-    
-    var query = new google.visualization.Query(
-          'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit#gid=1575241258&headers=1&tq=' + queryString);
-      query.send(handleQueryResponse);
-
-    // Apply query language statement.
-    //query.setQuery('SELECT A,D WHERE D > 100 ORDER BY D');
-    
-    // Send the query with a callback function.
-    //query.send(handleQueryResponse);
-  }
-
-  function handleQueryResponse(response) {
-    if (response.isError()) {
-      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-      return;
-    }
-
-    var data = response.getDataTable();
-    console.log(data);
-    /*visualization = new google.visualization.LineChart(document.getElementById('myPieChart'));
-    visualization.draw(data, {legend: 'bottom'});*/
-   
-   var table = new google.visualization.Table(document.getElementById('myPieChart'));
-
-        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
-  }
-  
-
-
-
-
-function lineIssues() {
-	//var queryString = encodeURIComponent('SELECT D, count(*) OFFSET 1');
-	var opts = {sendMethod: 'auto'};
-	var query = new google.visualization.Query(
-          'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit#gid=1575241258&headers=1', opts);//&tq=' + queryString);
-    query.setQuery('SELECT D, count(*) OFFSET 1');
-    query.send(lineIssuesQuery);
+function drawCharts() {
+    pieIssuePerLine();
+    recentIssues("Green Line",null,document.getElementById('wow'));
 }
-function lineIssuesQuery(response) {
-	if (response.isError()) {
-		alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-		return;
+
+function pieIssuePerLine(response) {
+    if(typeof(response) == 'undefined') {
+        var queryString = encodeURIComponent('SELECT D, COUNT(A) GROUP BY D');
+        var query = new google.visualization.Query(
+            'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
+        query.send(pieIssuePerLine);
     }
-    
-    var data = response.getDataTable();
-    
-    console.log(data);
-    
-    var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
-	chart.draw(data, null);
+    else {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+        }
+        var data = response.getDataTable();
+
+        var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
+        chart.draw(data, {
+        	colors: ['#f9e300', '#00a1de', '#62361b', '#009b3a', '#f9461c', '#e27ea6', '#522398', '#c60c30'],	//yellow, blue, brown, green, orange, pink, purple, red
+        	width: 400,
+        	height: 400
+        });
+    }
+}
+
+/**
+ *
+ * @param line String which line are we talking about
+ * @param stop String or Null which stop. If its null then all stops will be reported for line and stop column will be added to table
+ * @param element Element document element where table will be drawn
+ */
+function recentIssues(line, stop, element) {
+    if(stop == null) var queryString = encodeURIComponent('SELECT A,E,F,G WHERE D = "'+line+'"');
+    else var queryString = encodeURIComponent('SELECT A,F,G WHERE D = "'+line+'" AND E = "'+stop+'"');
+    var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
+    query.send(function(response){
+        var data = response.getDataTable();
+
+        console.log(data);
+
+        var chart = new google.visualization.Table(element);
+        chart.draw(data, null);
+    });
 }
