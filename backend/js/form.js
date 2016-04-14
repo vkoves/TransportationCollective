@@ -19,6 +19,6 @@ function pieIssuePerLine(response) {
         console.log(data);
 
         var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
-        chart.draw(data, {colors: ['#00a1de', '#009b3a', '#f9461c', '#522398', '#c60c30']});
+        chart.draw(data, {colors: ['#009b3a', '#00a1de', '#f9461c', '#522398', '#c60c30']});
     }
 }
