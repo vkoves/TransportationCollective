@@ -28,21 +28,21 @@ function drawChart() {
     //console.log(query);
 //}
 
-//function drawVisualization() {
-    //var query = new google.visualization.Query(
-    //    'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1');
+function () {
+    var query = new google.visualization.Query(
+        'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1');
      
-    var queryString = encodeURIComponent('SELECT D,R LIMIT 20');
+    /*var queryString = encodeURIComponent('SELECT D,R LIMIT 20');
     
     var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/edit#gid=1575241258&headers=1&tq=' + queryString);
-      query.send(handleQueryResponse);
+      query.send(handleQueryResponse);*/
 
     // Apply query language statement.
-    //query.setQuery('SELECT A,D WHERE D > 100 ORDER BY D');
+    query.setQuery('SELECT A,D WHERE D > 100 ORDER BY D');
     
     // Send the query with a callback function.
-    //query.send(handleQueryResponse);
+    query.send(handleQueryResponse);
   }
 
   function handleQueryResponse(response) {
@@ -53,12 +53,12 @@ function drawChart() {
 
     var data = response.getDataTable();
     console.log(data);
-    /*visualization = new google.visualization.LineChart(document.getElementById('myPieChart'));
-    visualization.draw(data, {legend: 'bottom'});*/
+    visualization = new google.visualization.LineChart(document.getElementById('myPieChart'));
+    visualization.draw(data, {legend: 'bottom'});
    
-   var table = new google.visualization.Table(document.getElementById('myPieChart'));
+   /*var table = new google.visualization.Table(document.getElementById('myPieChart'));
 
-        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});*/
   }
   
 
@@ -69,7 +69,6 @@ function lineIssues() {
 	var queryString = encodeURIComponent('SELECT D');
 	var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
-    //query.setQuery('SELECT D, count(*)');
     query.send(lineIssuesQuery);
 }
 function lineIssuesQuery(response) {
