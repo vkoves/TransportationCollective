@@ -17,10 +17,12 @@ function pieIssuePerLine(response) {
         }
         var data = response.getDataTable();
 
-        console.log(data);
-
         var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
-        chart.draw(data, null);
+        chart.draw(data, {
+        	colors: ['#f9e300', '#00a1de', '#62361b', '#009b3a', '#f9461c', '#e27ea6', '#522398', '#c60c30'],	//yellow, blue, brown, green, orange, pink, purple, red
+        	width: 400,
+        	height: 400
+        });
     }
 }
 
