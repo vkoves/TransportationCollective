@@ -33,7 +33,7 @@ function pieIssuePerLine(response) {
  * @param where Element document element where table will be drawn
  */
 function recentIssues(line, stop, where) {
-    var queryString = encodeURIComponent('SELECT F,G WHERE D = "'+line+'" AND E = "'+stop+'"');
+    var queryString = encodeURIComponent('SELECT A,F,G WHERE D = "'+line+'" AND E = "'+stop+'"');
     var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
     query.send(function(response){
         var data = response.getDataTable();
