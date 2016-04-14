@@ -1,12 +1,21 @@
 var userStops = [];
 var defaultStopCookie = "favoriteStops=red:Sox-35th,blue:Irving Park,green:35th-Bronzeville-IIT,purple:Linden,brown:Western,yellow:Skokie,pink:Cicero,orange:Midway";
 var stopCookie = "";
+var settingsPage = false;
 
 $(document).ready(function()
 {
 	//Cookies tutorial http://www.w3schools.com/js/js_cookies.asp
 
 	showFavoriteStops();
+
+	if(settingsPage)
+		initSettings();
+});
+
+function initSettings()
+{
+	console.log("TEST");
 
 	$("#line-choices .circle").click(function()
 	{
@@ -33,7 +42,7 @@ $(document).ready(function()
 		parent.slideUp();
 		removeStop(parent.attr("data-line"), parent.attr("data-stop"));
 	});
-});
+}
 
 function showFavoriteStops()
 {

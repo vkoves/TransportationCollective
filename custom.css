@@ -39,14 +39,14 @@
 	height: 28px;
 	border-radius: 100px;
 }
-.circle.red {background-color: #D11D2C;}
-.circle.blue {background-color: #01A1DD;}
-.circle.green {background-color: #00964D;}
-.circle.purple {background-color: #4B308A;}
-.circle.brown {background-color: #633D21;}
+.circle.red {background-color: #c60c30;}
+.circle.blue {background-color: #00a1de;}
+.circle.green {background-color: #009b3a;}
+.circle.purple {background-color: #522398;}
+.circle.brown {background-color: #62361b;}
 .circle.yellow {background-color: #FBD704;}
-.circle.orange {background-color: #EF4B24;}
-.circle.pink {background-color: #EC82A7;}
+.circle.orange {background-color: #f9461c;}
+.circle.pink {background-color: #e27ea6;}
 .circle.selected {
 	background-image: url("images/checkmark.svg");
     background-size: 70%;
@@ -57,6 +57,7 @@
 /* Stop Listing */
 #settings-title
 {
+  width: 100%;
   margin-top: 10px;
 	margin-right: 30px;
 	margin-bottom: 0px;
