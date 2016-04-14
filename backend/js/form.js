@@ -1,6 +1,6 @@
 function drawCharts() {
     pieIssuePerLine();
-    recentIssues("Green Line","Roosevelt",document.getElementById('wow'));
+    recentIssues("Green Line",null,document.getElementById('wow'));
 }
 
 function pieIssuePerLine(response) {
@@ -29,11 +29,12 @@ function pieIssuePerLine(response) {
 /**
  *
  * @param line String which line are we talking about
- * @param stop String which stop
+ * @param stop String or Null which stop. If its null then all stops will be reported for line and stop column will be added to table
  * @param where Element document element where table will be drawn
  */
 function recentIssues(line, stop, where) {
-    var queryString = encodeURIComponent('SELECT A,F,G WHERE D = "'+line+'" AND E = "'+stop+'"');
+    if(stop == null) var queryString = encodeURIComponent('SELECT A,E,F,G WHERE D = "'+line+'"');
+    else var queryString = encodeURIComponent('SELECT A,F,G WHERE D = "'+line+'" AND E = "'+stop+'"');
     var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
     query.send(function(response){
         var data = response.getDataTable();
