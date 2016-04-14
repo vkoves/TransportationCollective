@@ -66,7 +66,7 @@ function drawChart() {
 
 
 function lineIssues() {
-	var queryString = encodeURIComponent('SELECT D, count(*)');
+	var queryString = encodeURIComponent('SELECT D');
 	var query = new google.visualization.Query(
           'https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
     //query.setQuery('SELECT D, count(*)');
