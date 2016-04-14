@@ -28,7 +28,7 @@ function drawChart() {
     //console.log(query);
 //}
 
-function () {
+function drawVisualization() {
     var query = new google.visualization.Query(
         'http://spreadsheets.google.com/tq?key=pCQbetd-CptGXxxQIG7VFIQ&pub=1');
      
