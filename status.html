@@ -53,6 +53,12 @@
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <!-- Google Charts Loader JS -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- Main JS -->
+    <script src="main.js"></script>
+    <!-- Form JS -->
+    <script src="backend/js/form.js"></script>
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -74,6 +80,9 @@
           <section class="section--center mdl-grid mdl-grid--no-spacing">
           <!-- Insert content here -->
           <h3 id="settings-title">Status</h3>
+          <div id="stops-list">
+          </div>
+          <div id="myPieChart" style="width: 500px; height: 500px"></div>
           <!--
             <iframe id="graph" class="mdl-shadow--2dp" width="1000" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/pubchart?oid=1183155089&amp;format=interactive"></iframe>
           -->

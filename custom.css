@@ -68,13 +68,14 @@
 }
 .stop-listing
 {
-	position: relative;
-	background: white;
-    margin: 10px 0px;
-    padding: 10px;
-    height: 30px;
-    color: #171717;
-    font-size: 20px;
+  position: relative;
+  background: white;
+  margin: 10px 0px;
+  padding: 10px;
+  height: 30px;
+  color: #171717;
+  font-size: 20px;
+  overflow: hidden;
 }
 .stop-listing .stop-name
 {
@@ -88,23 +89,46 @@
 }
 .stop-listing .delete
 {
-	cursor: pointer;
+  cursor: pointer;
 	background-size: 70%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url("images/bin.svg");
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    background-color: #BDBDBD;
-    border-radius: 5px;
-    transition: box-shadow 0.2s;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("images/bin.svg");
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background-color: #BDBDBD;
+  border-radius: 5px;
+  transition: box-shadow 0.2s;
 }
 .stop-listing .delete:hover
 {
     box-shadow: 0px 0px 5px black;
+}
+.stop-listing .arrow
+{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 40px;
+  width: 40px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("images/arrow.svg");
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+}
+.rotate-180
+{
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
 }
 #add-stop
 {
@@ -174,6 +198,12 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+}
+.graph-cont
+{
+  width: 100%;
+  margin-top: 15px;
+  height: calc(100% - 40px);
 }
 
 @media (max-width: 450px)
