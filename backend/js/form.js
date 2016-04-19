@@ -2,9 +2,10 @@ function drawCharts() {
     pieIssuePerLine();
 
     var options = {
-        line: 'Green Line'
+        line: 'Green Line',
     };
-    recentIssues(options,document.getElementById('wow'));
+    //recentIssues(options,document.getElementById('wow'));
+    issuesByType(options,document.getElementById('wow'));
 }
 
 function pieIssuePerLine(response) {
@@ -57,6 +58,31 @@ function recentIssues(options, element) {
         var data = response.getDataTable();
 
         var chart = new google.visualization.Table(element);
+        chart.draw(data, null);
+    });
+}
+
+function issuesByType(options,element) {
+    if(typeof(options.line) === 'undefined') {
+        throw Error('Line must be specified');
+    }
+
+    var queryString = 'SELECT F,COUNT(A) WHERE D = "'+options.line+'"';
+
+    if(typeof(options.stop) !== 'undefined') {
+        queryString += ' AND E = "'+stop+'"';
+    }
+
+    queryString += ' GROUP BY F';
+
+    if(typeof(options.limit) !== 'undefined') {
+        queryString += ' LIMIT '+options.limit;
+    }
+    var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
+    query.send(function(response){
+        var data = response.getDataTable();
+
+        var chart = new google.visualization.PieChart(element);
         chart.draw(data, null);
     });
 }
