@@ -1,6 +1,10 @@
 function drawCharts() {
     pieIssuePerLine();
-    recentIssues("Green Line",null,document.getElementById('wow'));
+
+    var options = {
+        line: 'Green Line'
+    };
+    recentIssues(options,document.getElementById('wow'));
 }
 
 function pieIssuePerLine(response) {
@@ -27,19 +31,30 @@ function pieIssuePerLine(response) {
 }
 
 /**
- *
- * @param line String which line are we talking about
- * @param stop String or Null which stop. If its null then all stops will be reported for line and stop column will be added to table
- * @param element Element document element where table will be drawn
+ * Draws a table of issues
+ * @param options object. Attributes include line, stop, and limit (of number of results)
+ * @param element this is the element where the table will be drawn
  */
-function recentIssues(line, stop, element) {
-    if(stop == null) var queryString = encodeURIComponent('SELECT A,E,F,G WHERE D = "'+line+'"');
-    else var queryString = encodeURIComponent('SELECT A,F,G WHERE D = "'+line+'" AND E = "'+stop+'"');
+function recentIssues(options, element) {
+
+    if(typeof(options.line) === 'undefined') {
+        throw Error('Line must be specified');
+    }
+
+    var queryString = 'SELECT A,E,F,G WHERE D = "'+options.line+'"';
+
+    if(typeof(options.stop) !== 'undefined') {
+        queryString += ' AND E = "'+stop+'"';
+    }
+
+    queryString += ' ORDER BY A DESC'
+
+    if(typeof(options.limit) !== 'undefined') {
+        queryString += ' LIMIT '+options.limit;
+    }
     var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
     query.send(function(response){
         var data = response.getDataTable();
-
-        console.log(data);
 
         var chart = new google.visualization.Table(element);
         chart.draw(data, null);
