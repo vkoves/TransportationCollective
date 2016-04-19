@@ -120,6 +120,10 @@
   background: orange;
   color: white;
 }
+:focus
+{
+  outline: none;
+}
 
 /* Stop Listing elements */
 .stop-listing .stop-name
