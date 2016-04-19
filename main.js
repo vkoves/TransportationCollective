@@ -55,22 +55,39 @@ function initStatus()
 
 	$(".stop-listing").click(function()
 	{
-		$(this).find(".arrow").toggleClass("rotate-180");
+		$(".stop-listing").not(this).removeClass("tall");
 		$(this).toggleClass("tall");
-		var options = {
-			line: capitalizeFirstLetter($(this).attr("data-line")) + " Line"
-		}
-    	recentIssues(options, $(this).find('.graph-cont')[0]); //find issues
 
-    	/*
-		if($(this).height() > 40) //it's big already
+		if($(this).find(".active").length == 0) //if no visualization is being shown
 		{
-			$(this).animate({height: "30"}, 500);
+			var options = {
+				line: capitalizeFirstLetter($(this).attr("data-line")) + " Line"
+			}
+	    	recentIssues(options, $(this).find('.graph-cont')[0]); //find issues
+	    	$(this).find("#issues").addClass("active");
 		}
-		else
+	});
+
+	$(".stop-listing button").click(function(event)
+	{
+		event.stopPropagation();
+		var parent = $(this).parent().parent();
+		var options = {
+			line: capitalizeFirstLetter(parent.attr("data-line")) + " Line"
+		}
+
+		var id = $(this).attr("id");
+		parent.find("button").removeClass("active"); //disable all active buttons in this stop listing
+		if(id == "issues")
 		{
-			$(this).animate({height: "300"}, 500);
-		} */
+			recentIssues(options, parent.find('.graph-cont')[0]);
+	    	parent.find("#issues").addClass("active");
+		}
+		else if(id == "issue-types")
+	    {
+	    	issuesByType(options, parent.find('.graph-cont')[0]);
+	    	parent.find("#issue-types").addClass("active");
+	    }
 	});
 }
 
@@ -86,7 +103,6 @@ function showFavoriteStops()
 	var arr = cookieString.split("favoriteStops=");
 	stopCookie = arr[arr.length - 1];
 	var stopArray = stopCookie.split(",");
-	console.log(stopArray);
 
 	for(var i = 0; i < stopArray.length; i++)
 	{
@@ -148,7 +164,9 @@ function appendStopDiv(lineName, stopName)
 	if(settingsPage)
 		endHTML = "<div class='delete'></div>";
 	else
-		endHTML = "<div class='arrow'></div><div class='graph-cont'></div>";
+		endHTML = "<div class='arrow'></div><div class='tall-cont'>"
+			+ "<button id='issues' class='shadow'>View Issues</button><button id='issue-types' class='shadow'>View Issue Types</button>"
+			+ "<div class='graph-cont'></div>" + "</div>";
 
 
 	$("#stops-list").append("<div class='stop-listing' data-line='" + lineName.toLowerCase() + "' data-stop='" + stopName + "'>"

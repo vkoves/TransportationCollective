@@ -66,6 +66,8 @@
 {
 	width: 100%;
 }
+
+/* Stop Listing Main CSS */
 .stop-listing
 {
   position: relative;
@@ -85,6 +87,41 @@
 {
   height: 300px;
 }
+.tall-cont
+{
+  width: 100%;
+  margin-top: 15px;
+  height: 260px;
+}
+.graph-cont
+{
+  width: 100%;
+  height: 220px;
+  margin-top: 10px;
+}
+.stop-listing button
+{
+  cursor: pointer;
+  margin-right: 10px;
+  background: #EAEAEA;
+  border: none;
+  padding: 5px 10px;
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  font-weight: 500;
+  color: #616161;
+  font-size: 15px;
+  -webkit-transition: background 0.3s, color 0.3s;
+  -moz-transition: background 0.3s, color 0.3s;
+  -o-transition: background 0.3s, color 0.3s;
+  -ms-transition: background 0.3s, color 0.5s;
+}
+.stop-listing button.active
+{
+  background: orange;
+  color: white;
+}
+
+/* Stop Listing elements */
 .stop-listing .stop-name
 {
 	margin-top: 5px;
@@ -131,7 +168,7 @@
   -o-transition: transform 0.5s;
   -ms-transition: transform 0.5s;
 }
-.rotate-180
+.rotate-180, .stop-listing.tall .arrow
 {
     -moz-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
@@ -191,7 +228,7 @@
 {
 	background: #369A3A;
 }
-.stop-listing, #add-stop
+.stop-listing, #add-stop, .shadow
 {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
 }
@@ -206,12 +243,6 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-}
-.graph-cont
-{
-  width: 100%;
-  margin-top: 15px;
-  height: calc(100% - 40px);
 }
 
 @media (max-width: 450px)
