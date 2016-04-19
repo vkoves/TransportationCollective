@@ -56,8 +56,10 @@ function initStatus()
 	$(".stop-listing").click(function()
 	{
 		$(this).find(".arrow").toggleClass("rotate-180");
+		$(this).toggleClass("tall");
     	recentIssues(capitalizeFirstLetter($(this).attr("data-line")) + " Line", null, $(this).find('.graph-cont')[0]); //find issues
 
+    	/*
 		if($(this).height() > 40) //it's big already
 		{
 			$(this).animate({height: "30"}, 500);
@@ -65,7 +67,7 @@ function initStatus()
 		else
 		{
 			$(this).animate({height: "300"}, 500);
-		}
+		} */
 	});
 }
 

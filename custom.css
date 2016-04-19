@@ -76,6 +76,14 @@
   color: #171717;
   font-size: 20px;
   overflow: hidden;
+  -webkit-transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+}
+.stop-listing.tall
+{
+  height: 300px;
 }
 .stop-listing .stop-name
 {
