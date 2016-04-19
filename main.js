@@ -57,7 +57,10 @@ function initStatus()
 	{
 		$(this).find(".arrow").toggleClass("rotate-180");
 		$(this).toggleClass("tall");
-    	recentIssues(capitalizeFirstLetter($(this).attr("data-line")) + " Line", null, $(this).find('.graph-cont')[0]); //find issues
+		var options = {
+			line: capitalizeFirstLetter($(this).attr("data-line")) + " Line"
+		}
+    	recentIssues(options, $(this).find('.graph-cont')[0]); //find issues
 
     	/*
 		if($(this).height() > 40) //it's big already
