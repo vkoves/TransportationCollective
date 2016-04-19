@@ -1,6 +1,7 @@
 var userStops = [];
 var defaultStopCookie = "favoriteStops=red:Sox-35th,blue:Irving Park,green:35th-Bronzeville-IIT,purple:Linden,brown:Western,yellow:Skokie,pink:Cicero,orange:Midway";
 var stopCookie = "";
+var settingsPage = false;
 
 $(document).ready(function()
 {
@@ -8,6 +9,14 @@ $(document).ready(function()
 
 	showFavoriteStops();
 
+	if(settingsPage) //if on settings page
+		initSettings();
+	else //if on status page
+		initStatus();
+});
+
+function initSettings()
+{
 	$("#line-choices .circle").click(function()
 	{
 		$("#line-choices .circle").removeClass("selected");
@@ -33,7 +42,34 @@ $(document).ready(function()
 		parent.slideUp();
 		removeStop(parent.attr("data-line"), parent.attr("data-stop"));
 	});
-});
+}
+
+function initStatus()
+{
+	//Load charts
+	google.charts.load('current', {packages: ['corechart','table']});
+	google.charts.setOnLoadCallback(function()
+	{
+	    pieIssuePerLine();
+	});
+
+	$(".stop-listing").click(function()
+	{
+		$(this).find(".arrow").toggleClass("rotate-180");
+		$(this).toggleClass("tall");
+    	recentIssues(capitalizeFirstLetter($(this).attr("data-line")) + " Line", null, $(this).find('.graph-cont')[0]); //find issues
+
+    	/*
+		if($(this).height() > 40) //it's big already
+		{
+			$(this).animate({height: "30"}, 500);
+		}
+		else
+		{
+			$(this).animate({height: "300"}, 500);
+		} */
+	});
+}
 
 function showFavoriteStops()
 {
@@ -105,7 +141,19 @@ function removeStop(lineName, stopName)
 
 function appendStopDiv(lineName, stopName)
 {
+	var endHTML = "";
+	if(settingsPage)
+		endHTML = "<div class='delete'></div>";
+	else
+		endHTML = "<div class='arrow'></div><div class='graph-cont'></div>";
+
+
 	$("#stops-list").append("<div class='stop-listing' data-line='" + lineName.toLowerCase() + "' data-stop='" + stopName + "'>"
 		+ "<div class='circle " + lineName.toLowerCase() + "'></div>"
-		+ "<div class='stop-name'>" + stopName + "</div><div class='delete'></div></div>");
+		+ "<div class='stop-name'>" + stopName + "</div>" + endHTML + "</div>");
+}
+
+//make a word title case
+function capitalizeFirstLetter(val){
+    return val.charAt(0).toUpperCase()+val.substr(1).toLowerCase();
 }

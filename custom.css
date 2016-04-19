@@ -39,14 +39,14 @@
 	height: 28px;
 	border-radius: 100px;
 }
-.circle.red {background-color: #D11D2C;}
-.circle.blue {background-color: #01A1DD;}
-.circle.green {background-color: #00964D;}
-.circle.purple {background-color: #4B308A;}
-.circle.brown {background-color: #633D21;}
+.circle.red {background-color: #c60c30;}
+.circle.blue {background-color: #00a1de;}
+.circle.green {background-color: #009b3a;}
+.circle.purple {background-color: #522398;}
+.circle.brown {background-color: #62361b;}
 .circle.yellow {background-color: #FBD704;}
-.circle.orange {background-color: #EF4B24;}
-.circle.pink {background-color: #EC82A7;}
+.circle.orange {background-color: #f9461c;}
+.circle.pink {background-color: #e27ea6;}
 .circle.selected {
 	background-image: url("images/checkmark.svg");
     background-size: 70%;
@@ -57,6 +57,7 @@
 /* Stop Listing */
 #settings-title
 {
+  width: 100%;
   margin-top: 10px;
 	margin-right: 30px;
 	margin-bottom: 0px;
@@ -67,13 +68,22 @@
 }
 .stop-listing
 {
-	position: relative;
-	background: white;
-    margin: 10px 0px;
-    padding: 10px;
-    height: 30px;
-    color: #171717;
-    font-size: 20px;
+  position: relative;
+  background: white;
+  margin: 10px 0px;
+  padding: 10px;
+  height: 30px;
+  color: #171717;
+  font-size: 20px;
+  overflow: hidden;
+  -webkit-transition: height 0.5s;
+  -moz-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  -ms-transition: height 0.5s;
+}
+.stop-listing.tall
+{
+  height: 300px;
 }
 .stop-listing .stop-name
 {
@@ -87,23 +97,46 @@
 }
 .stop-listing .delete
 {
-	cursor: pointer;
+  cursor: pointer;
 	background-size: 70%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-image: url("images/bin.svg");
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    background-color: #BDBDBD;
-    border-radius: 5px;
-    transition: box-shadow 0.2s;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("images/bin.svg");
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background-color: #BDBDBD;
+  border-radius: 5px;
+  transition: box-shadow 0.2s;
 }
 .stop-listing .delete:hover
 {
     box-shadow: 0px 0px 5px black;
+}
+.stop-listing .arrow
+{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 40px;
+  width: 40px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("images/arrow.svg");
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+}
+.rotate-180
+{
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
 }
 #add-stop
 {
@@ -173,6 +206,12 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
+}
+.graph-cont
+{
+  width: 100%;
+  margin-top: 15px;
+  height: calc(100% - 40px);
 }
 
 @media (max-width: 450px)
