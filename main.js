@@ -77,17 +77,23 @@ function initStatus()
 		}
 
 		var id = $(this).attr("id");
+		var graphCont = parent.find('.graph-cont')[0];
 		parent.find("button").removeClass("active"); //disable all active buttons in this stop listing
 		if(id == "issues")
 		{
-			recentIssues(options, parent.find('.graph-cont')[0]);
-	    	parent.find("#issues").addClass("active");
+			recentIssues(options, graphCont);
 		}
 		else if(id == "issue-types")
 	    {
-	    	issuesByType(options, parent.find('.graph-cont')[0]);
-	    	parent.find("#issue-types").addClass("active");
+	    	issuesByType(options, graphCont);
 	    }
+	    else if(id == "issues-time")
+	    {
+	    	options["color"] = parent.find(".circle").css("background-color");
+	    	console.log("Col: " + options["color"]);
+	    	issuesOverTime(options, graphCont);
+	    }
+	    parent.find("#" + id).addClass("active");
 	});
 }
 
@@ -165,7 +171,9 @@ function appendStopDiv(lineName, stopName)
 		endHTML = "<div class='delete'></div>";
 	else
 		endHTML = "<div class='arrow'></div><div class='tall-cont'>"
-			+ "<button id='issues' class='shadow'>View Issues</button><button id='issue-types' class='shadow'>View Issue Types</button>"
+			+ "<button id='issues' class='shadow'>Issues</button>"
+			+ "<button id='issue-types' class='shadow'>Issue Types</button>"
+			+ "<button id='issues-time' class='shadow'>Issues Over Time</button>"
 			+ "<div class='graph-cont'></div>" + "</div>";
 
 
