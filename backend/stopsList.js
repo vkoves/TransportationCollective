@@ -1,4 +1,4 @@
-[
+var stopListJSON  = [
   {
     "name": "18th (Pink Line)",
     "location": "(41.857908, -87.669147)"
@@ -587,4 +587,4 @@
     "name": "Western (Blue Line - Forest Park Branch)",
     "location": "(41.875478, -87.688436)"
   }
-]
+];

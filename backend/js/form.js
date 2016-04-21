@@ -161,7 +161,8 @@ function issuesMap(options, element)
         var data = response.getDataTable();
 
         var dataT = new google.visualization.DataTable(); //then create a new data table
-        dataT.addColumn('string', 'Location'); //add columns
+        dataT.addColumn('number', 'Latitude'); //add columns
+        dataT.addColumn('number', 'Longitude');
         dataT.addColumn('string', 'Issues');
 
         var issueHash = {}; //For counting issues
@@ -174,7 +175,7 @@ function issuesMap(options, element)
             if(line == null || stop == null) //if the stop or the  line is null
                 continue; //skip it!
 
-            var location = stop + " " + line;
+            var location = line + ": " + stop;
 
             if(location in issueHash)
                 issueHash[location] += 1;
@@ -182,11 +183,18 @@ function issuesMap(options, element)
                 issueHash[location] = 1;
         }
 
-        console.log(issueHash);
-
         for(location in issueHash)
         {
-            dataT.addRow([location + ", Chicago, IL", location + "<br>" + "Issues: " + issueHash[location]]);
+            var locArr = location.split(":");
+            var latLongString = getStopLocation(locArr[1].trim(), locArr[0]);
+            if(latLongString)
+            {
+                var latString = latLongString.split(",")[0].replace(/["'()]/g,"");
+                var longString = latLongString.split(",")[1].replace(/["'()]/g,"");
+                var latitude = parseFloat(latString);
+                var longitude = parseFloat(longString);
+                dataT.addRow([latitude, longitude, location + "<br>" + "Issues: " + issueHash[location]]);
+            }
         }
 
         var data = google.visualization.arrayToDataTable([
