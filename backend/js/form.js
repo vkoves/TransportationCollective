@@ -191,6 +191,8 @@ function issuesMap(options, element)
 
         var map = new google.maps.Map(element, mapOptions);
 
+        geoJSON = "";
+
         for(location in issueHash)
         {
             var locArr = location.split(":");
@@ -201,14 +203,31 @@ function issuesMap(options, element)
                 var longString = latLongString.split(",")[1].replace(/["'()]/g,"");
                 var latitude = parseFloat(latString);
                 var longitude = parseFloat(longString);
+
+                geoJSON = geoJSON
+                + '{'
+                +  '"type": "Feature",'
+                +  '"geometry": {'
+                +    '"type": "Point",'
+                +    '"coordinates": [' + latitude + ',' +  longitude + ']'
+                +  '},'
+                +  '"properties": {'
+                +    '"name": "Dinagat Islands"'
+                +  '}'
+                + '}';
+
+                /*
                 var marker = new google.maps.Marker({
                     position: {lat: latitude, lng: longitude},
                     map: map,
                     title: 'Hello World!'
                 });
+                */
                 dataT.addRow([latitude, longitude, location + "<br>" + "Issues: " + issueHash[location]]);
             }
         }
+
+        map.data.loadGeoJson(geoJSON);
         // var mapOptions = { showTip: true, mapType: "normal", enableScrollWheel: true };
 
         //var map = new google.visualization.Map(element);
