@@ -191,12 +191,10 @@ function issuesMap(options, element)
 
         var map = new google.maps.Map(element, mapOptions);
 
-        console.log(issueHash);
-
         for(location in issueHash)
         {
             var locArr = location.split(":");
-            var latLongString = getStopLocation(locArr[1].trim(), locArr[0]);
+            var latLongString = getStopLocation(locArr[1].trim(), locArr[0].split(" ")[0]);
             if(latLongString)
             {
                 var latString = latLongString.split(",")[0].replace(/["'()]/g,"");
