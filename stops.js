@@ -11,7 +11,7 @@ jQuery(function() {
 function getStopLocation(name) {
 	for (var i = 0; i < a.length; i++) {
 		if (a[i]['name'].indexOf(name) > -1) {
-			return a['location'];
+			return a[i]['location'];
 		}
 	}
 	return null;
