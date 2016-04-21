@@ -203,7 +203,7 @@ function issuesMap(options, element)
             ['Clark/Division Red Line, Chicago IL', 'China: 1,363,800,000']
         ]);
 
-        var mapOptions = { showTip: true, mapType: "normal", };
+        var mapOptions = { showTip: true, mapType: "normal", enableScrollWheel: true };
 
         var map = new google.visualization.Map(element);
 
@@ -235,7 +235,7 @@ function recentIssues(limit, element)
                 + "<div class='circle " + line.split(" ")[0].toLowerCase() + "'></div>"
                 + "<div class='issue-text'>"
                 + "<span class='location'>" + stop + "</span>" + " - "
-                + "<span class='date'>" + time.toDateString() + "</span>" + " at "
+                + "<span class='date'>" + time.toDateString() + "</span>" + " - "
                 + "<span class='type'>" + type + "</span>"
                 + "</div></div>");
         }
