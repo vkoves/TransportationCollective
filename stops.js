@@ -8,8 +8,8 @@ jQuery(function() {
 	});
 });
 
-function getStopLocation(stop) {
-	if (a['name'].indexOf(stop) > -1) {
+function getStopLocation(name) {
+	if (a['name'].indexOf(name) > -1) {
 		//return a['location'];
 		console.log(a['location']);
 	}
