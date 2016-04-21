@@ -1,7 +1,7 @@
 var userStops = [];
 var defaultStopCookie = "favoriteStops=red:Sox-35th,blue:Irving Park,green:35th-Bronzeville-IIT,purple:Linden,brown:Western,yellow:Skokie,pink:Cicero,orange:Midway";
 var stopCookie = "";
-var settingsPage = false;
+var currentPage = "";
 
 $(document).ready(function()
 {
@@ -9,10 +9,18 @@ $(document).ready(function()
 
 	showFavoriteStops();
 
-	if(settingsPage) //if on settings page
+	if(currentPage == "settings") //if on settings page
 		initSettings();
-	else //if on status page
+	else if(currentPage == "status") //if on status page
 		initStatus();
+	else if(currentPage == "home")
+	{
+		google.charts.load('current', {packages: ['corechart','table','map']});
+		google.charts.setOnLoadCallback(function()
+		{
+			issuesMap(null, document.getElementById("mapContainer"));
+		});
+	}
 });
 
 function initSettings()
@@ -68,6 +76,11 @@ function initStatus()
 		}
 	});
 
+	$(".tall-cont").click(function(event)
+	{
+		event.stopPropagation();
+	});
+
 	$(".stop-listing button").click(function(event)
 	{
 		event.stopPropagation();
@@ -90,7 +103,6 @@ function initStatus()
 	    else if(id == "issues-time")
 	    {
 	    	options["color"] = parent.find(".circle").css("background-color");
-	    	console.log("Col: " + options["color"]);
 	    	issuesOverTime(options, graphCont);
 	    }
 	    parent.find("#" + id).addClass("active");
@@ -167,7 +179,7 @@ function removeStop(lineName, stopName)
 function appendStopDiv(lineName, stopName)
 {
 	var endHTML = "";
-	if(settingsPage)
+	if(currentPage == "settings")
 		endHTML = "<div class='delete'></div>";
 	else
 		endHTML = "<div class='arrow'></div><div class='tall-cont'>"

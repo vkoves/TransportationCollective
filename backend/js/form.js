@@ -140,10 +140,54 @@ function issuesOverTime(options, element)
     });
 }
 
-Date.prototype.isSameDateAs = function(pDate) {
-  return (
-    this.getFullYear() === pDate.getFullYear() &&
-    this.getMonth() === pDate.getMonth() &&
-    this.getDate() === pDate.getDate()
-  );
+function issuesMap(options, element)
+{
+    var queryString = 'SELECT D, E'; //grab everything from the date column
+
+    var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
+
+    query.send(function(response){
+        var data = response.getDataTable();
+
+        var dataT = new google.visualization.DataTable(); //then create a new data table
+        dataT.addColumn('string', 'Location'); //add columns
+        dataT.addColumn('string', 'Issues');
+
+        var issueHash = {}; //For counting issues
+
+        for(i = 0; i < data.getNumberOfRows(0); i++) //iterate through the data
+        {
+            var line = data.getValue(i,0);
+            var stop = data.getValue(i,1);
+
+            if(line == null || stop == null) //if the stop or the  line is null
+                continue; //skip it!
+
+            var location = stop + " " + line;
+
+            if(location in issueHash)
+                issueHash[location] += 1;
+            else
+                issueHash[location] = 1;
+        }
+
+        console.log(issueHash);
+
+        for(location in issueHash)
+        {
+            dataT.addRow([location + ", Chicago, IL", location + "<br>" + "Issues: " + issueHash[location]]);
+        }
+
+        var data = google.visualization.arrayToDataTable([
+            ['Country', 'Population'],
+            ['Belmont Red Line, Chicago IL', 'China: 1,363,800,000'],
+            ['Clark/Division Red Line, Chicago IL', 'China: 1,363,800,000']
+        ]);
+
+        var mapOptions = { showTip: true, mapType: "normal", };
+
+        var map = new google.visualization.Map(element);
+
+        map.draw(dataT, mapOptions);
+    });
 }

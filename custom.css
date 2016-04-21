@@ -248,6 +248,9 @@
   margin-right: auto;
   margin-bottom: 20px;
 }
+#mapContainer
+{
+}
 
 @media (max-width: 450px)
 {
