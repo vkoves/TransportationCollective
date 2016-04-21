@@ -1,4 +1,4 @@
-var a = {};
+var a = [];
 
 jQuery(function() {
 	$.getJSON('stops.json', function (data) {
