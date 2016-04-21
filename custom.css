@@ -316,3 +316,12 @@
   z-index: 900;
 }
  /* End Rytis CSS */
+
+/* Begin Pat CSS */
+
+.mdl-layout__header-row {
+	background-color: #ed2024;
+}
+.mdl-layout__tab-bar {
+	background-color: #0b79bf;
+}
