@@ -9,9 +9,11 @@ jQuery(function() {
 });
 
 function getStopLocation(name) {
-	if (a['name'].indexOf(name) > -1) {
-		//return a['location'];
-		console.log(a['location']);
+	for (var i = 0; i < a.length; i++) {
+		if (a[i]['name'].indexOf(name) > -1) {
+			//return a['location'];
+			console.log(a[i]['location']);
+		}
 	}
 	console.log("not found");
 }
