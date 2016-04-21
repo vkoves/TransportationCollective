@@ -305,8 +305,8 @@ function setCircleHover(circle, hover)
 function recentIssues(limit, element)
 {
     var queryString = 'SELECT B, D, E, F'; //time, line, stop and incident type
-    if(limit)
-        queryString = queryString + " LIMIT " + limit;
+    // if(limit)
+        // queryString = queryString + " LIMIT " + limit;
 
     var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
 
@@ -314,7 +314,9 @@ function recentIssues(limit, element)
         var data = response.getDataTable();
         data.sort({column: 0, desc: true}); //sort by date
 
-        for(i = 0; i < data.getNumberOfRows(0); i++) //iterate through the data
+        var maxBound = Math.min(limit, data.getNumberOfRows(0));
+
+        for(i = 0; i < maxBound; i++) //iterate through the data
         {
             var time = new Date(data.getValue(i,0));
             var line = data.getValue(i,1);
