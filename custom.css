@@ -319,7 +319,7 @@
 
 /* Begin Pat CSS */
 
-.mdl-layout__header.mdl-layout__header--scroll.mdl-color--primary {
+.mdl-layout__header.mdl-layout__header--scroll.mdl-color--primary, .mdl-button__ripple-container {
 	background-color: #ed2024 !important;
 }
 .mdl-layout__tab-bar.mdl-js-ripple-effect.mdl-color--primary-dark.mdl-js-ripple-effect--ignore-events {
