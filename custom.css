@@ -320,8 +320,10 @@
 /* Begin Pat CSS */
 
 .mdl-layout__header.mdl-layout__header--scroll.mdl-color--primary, .mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-color--accent.mdl-color-text--accent-contrast {
-	background-color: #ed2024 !important;
+	background-color: #3BB3FF !important;
 }
 .mdl-layout__tab-bar.mdl-js-ripple-effect.mdl-color--primary-dark.mdl-js-ripple-effect--ignore-events {
 	background-color: #0b79bf !important;
 }
+
+/* End Pat CSS */
