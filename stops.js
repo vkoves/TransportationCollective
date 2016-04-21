@@ -5,6 +5,7 @@ jQuery(function() {
 		$.each(data, function(i, field){
 			a[i] = field;
 		});
+	});
 });
 
 function getStopLocation(stop) {
