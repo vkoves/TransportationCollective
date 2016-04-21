@@ -9,7 +9,8 @@ jQuery(function() {
 
 function getStopLocation(stop) {
 	if (a['name'].indexOf(stop) > -1) {
-		return a['location'];
+		//return a['location'];
+		console.log(a['location'];
 	}
-	return false;
+	console.log("not found");
 }
