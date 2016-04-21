@@ -319,9 +319,9 @@
 
 /* Begin Pat CSS */
 
-.dl-layout__header, .mdl-layout__header--scroll, .mdl-color--primary {
-	background-color: #ed2024;
+.dl-layout__header.mdl-layout__header--scroll.mdl-color--primary {
+	background-color: #ed2024 !important;
 }
-.mdl-layout__tab-bar-container {
-	background-color: #0b79bf;
+.mdl-layout__tab-bar.mdl-js-ripple-effect.mdl-color--primary-dark.mdl-js-ripple-effect--ignore-events {
+	background-color: #0b79bf !important;
 }
