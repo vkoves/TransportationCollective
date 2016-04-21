@@ -339,6 +339,10 @@
   {
     line-height: 10px;
   }
+  #view-source
+  {
+    margin: 0px !important;
+  }
   #line-choices
   {
     position: relative;
