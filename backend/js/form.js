@@ -191,7 +191,7 @@ function issuesMap(options, element)
 
         var map = new google.maps.Map(element, mapOptions);
 
-        geoJSON = "";
+        var geoJSON = "";
 
         for(location in issueHash)
         {
@@ -231,8 +231,6 @@ function issuesMap(options, element)
         // var mapOptions = { showTip: true, mapType: "normal", enableScrollWheel: true };
 
         //var map = new google.visualization.Map(element);
-
-        console.log(map);
 
         map.data.setStyle(function(feature) {
             console.log(feature);
