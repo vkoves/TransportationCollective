@@ -19,6 +19,7 @@ $(document).ready(function()
 		google.charts.setOnLoadCallback(function()
 		{
 			issuesMap(null, document.getElementById("mapContainer"));
+			recentIssues(10, document.getElementById("issuesContainer"));
 		});
 	}
 });
@@ -71,7 +72,7 @@ function initStatus()
 			var options = {
 				line: capitalizeFirstLetter($(this).attr("data-line")) + " Line"
 			}
-	    	recentIssues(options, $(this).find('.graph-cont')[0]); //find issues
+	    	issuesTable(options, $(this).find('.graph-cont')[0]); //find issues
 	    	$(this).find("#issues").addClass("active");
 		}
 	});
@@ -94,7 +95,7 @@ function initStatus()
 		parent.find("button").removeClass("active"); //disable all active buttons in this stop listing
 		if(id == "issues")
 		{
-			recentIssues(options, graphCont);
+			issuesTable(options, graphCont);
 		}
 		else if(id == "issue-types")
 	    {

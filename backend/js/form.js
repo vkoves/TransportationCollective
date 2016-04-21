@@ -4,7 +4,7 @@ function drawCharts() {
     var options = {
         line: 'Green Line',
     };
-    //recentIssues(options,document.getElementById('wow'));
+    //issuesTable(options,document.getElementById('wow'));
     issuesByType(options,document.getElementById('wow'));
 }
 
@@ -42,7 +42,7 @@ function pieIssuePerLine(response) {
  * @param options object. Attributes include line, stop, and limit (of number of results)
  * @param element this is the element where the table will be drawn
  */
-function recentIssues(options, element) {
+function issuesTable(options, element) {
 
     if(typeof(options.line) === 'undefined') {
         throw Error('Line must be specified');
@@ -125,6 +125,17 @@ function issuesOverTime(options, element)
             }
         }
 
+        var allDates = Object.keys(countHash);
+        var date = new Date(allDates[0]);
+        var lastDate = new Date(allDates[allDates.length - 1]);
+        while(date < lastDate)
+        {
+            date.setDate(date.getDate()+1);
+            var dateString = "" + date;
+            if(!(dateString in countHash))
+                countHash[dateString] = 0;
+        }
+
         var dataT = new google.visualization.DataTable(); //then create a new data table
         dataT.addColumn('date', 'Date'); //add columns
         dataT.addColumn('number', 'Issues');
@@ -189,5 +200,36 @@ function issuesMap(options, element)
         var map = new google.visualization.Map(element);
 
         map.draw(dataT, mapOptions);
+    });
+}
+
+function recentIssues(limit, element)
+{
+    var queryString = 'SELECT B, D, E, F'; //time, line, stop and incident type
+
+    var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
+
+    query.send(function(response){
+        var data = response.getDataTable();
+        data.sort({column: 0, desc: true}); //sort by date
+
+        for(i = 0; i < data.getNumberOfRows(0); i++) //iterate through the data
+        {
+            var time = new Date(data.getValue(i,0));
+            var line = data.getValue(i,1);
+            var stop = data.getValue(i,2);
+            var type = data.getValue(i,3);
+
+            if(time == null || line == null || stop == null || type == null)
+                continue;
+
+            $(element).append("<div class='issue-listing'>"
+                + "<div class='circle " + line.split(" ")[0].toLowerCase() + "'></div>"
+                + "<div class='issue-text'>"
+                + "<span class='location'>" + stop + "</span>" + " - "
+                + "<span class='date'>" + time.toDateString() + "</span>" + " at "
+                + "<span class='type'>" + type + "</span>"
+                + "</div></div>");
+        }
     });
 }

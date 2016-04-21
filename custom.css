@@ -67,6 +67,36 @@
 	width: 100%;
 }
 
+/* Issue Styling */
+#issuesContainer
+{
+  background: white;
+  min-height: 200px;
+  box-sizing: border-box;
+  padding: 5px 20px;
+}
+#issuesContainer h3
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.issue-listing
+{
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+}
+.issue-text
+{
+  position: relative;
+  top: 5px;
+}
+.issue-text .location
+{
+  font-weight: bold;
+  font-size: 16px;
+}
+
 /* Stop Listing Main CSS */
 .stop-listing
 {
@@ -130,7 +160,7 @@
 {
 	margin-top: 5px;
 }
-.stop-listing .circle
+.stop-listing .circle, .issue-listing .circle
 {
 	float: left;
   margin-top: 1px;
