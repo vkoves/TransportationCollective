@@ -113,7 +113,7 @@ function initStatus()
 function showFavoriteStops()
 {
 	var cookieString = defaultStopCookie;
-	if(document.cookie.length > 0)
+	if(document.cookie.indexOf("favoriteStops") > 0) //check for favorite stops cookie
 	{
 		cookieString = document.cookie;
 		console.log("Found valid cookie: " + document.cookie);

@@ -9,8 +9,13 @@ jQuery(function() {
 });
 
 function getStopLocation(name, line) {
+
+	name = name.toLowerCase();
+	line = line.toLowerCase();
+
 	for (var i = 0; i < a.length; i++) {
-		if (a[i]['name'].indexOf(name) > -1 && a[i]['name'].indexOf(line) > -1) {
+		var currName = a[i]['name'].toLowerCase();
+		if (currName.indexOf(name) > -1 && currName.indexOf(line) > -1) {
 			return a[i]['location'];
 		}
 	}
