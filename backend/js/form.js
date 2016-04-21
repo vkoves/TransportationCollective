@@ -226,7 +226,7 @@ function issuesMap(options, element)
                   fillColor: "#FF0000", //ctaColors[currLine.toLowerCase()],
                   map: map,
                   center: {lat: latitude, lng: longitude},
-                  radius: issueHash[location] * 750,
+                  radius: Math.sqrt(issueHash[location]) * 500,
                   line: currLine.toLowerCase(),
                   text: location,
                   issues: issueHash[location]
@@ -262,6 +262,10 @@ function issuesMap(options, element)
                     //infoWindow.close();
                 });
 
+                google.maps.event.addListener(circle, 'click', function(ev) {
+                    map.setCenter(this.getCenter());
+                });
+
                 google.maps.event.addListener(infoWindow,'closeclick',function(){
                     setCircleHover(currentCircle, false);
                 });
@@ -279,15 +283,22 @@ function issuesMap(options, element)
 /* Map Helpers */
 function setCircleHover(circle, hover)
 {
+    // "#FF0000"
     if(hover)
     {
-        circle.setOptions({fillOpacity: 0.5});
-        circle.setOptions({strokeOpacity: 0.6});
+        circle.setOptions({fillOpacity: 0.6});
+        circle.setOptions({strokeOpacity: 0.9});
+        circle.setOptions({fillColor: "#F7F700"});
+        circle.setOptions({strokeColor: "#C3C335"});
+        circle.setOptions({strokeWeight: 3});
     }
     else
     {
-        circle.setOptions({fillOpacity: 0.15});
-        circle.setOptions({strokeOpacity: 0.2});
+        circle.setOptions({fillOpacity: 0.25});
+        circle.setOptions({strokeOpacity: 0.3});
+        circle.setOptions({fillColor: "#FF0000"});
+        circle.setOptions({strokeColor: "#FF0000"});
+        circle.setOptions({strokeWeight: 2});
     }
 }
 

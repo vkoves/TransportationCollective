@@ -86,14 +86,23 @@
 }
 .issue-listing
 {
-  height: 30px;
+  display: flex;
+  align-items: center;
+  min-height: 30px;
   width: 100%;
-  padding: 5px;
+  padding: 8px 5px;
+  border-bottom: solid 1px #D8D8D8;
+}
+.issue-listing:last-of-type
+{
+  border: 0px;
 }
 .issue-text
 {
   position: relative;
-  top: 5px;
+  top: 2px;
+  float: right;
+  width: calc(100% - 40px);
 }
 .issue-text .location
 {
@@ -106,6 +115,7 @@
 {
   width: 100%;
   height: 500px;
+  max-height: 100vw;
 }
 #overlay-circle
 {
@@ -137,7 +147,7 @@
 }
 .stop-listing.tall
 {
-  height: 300px;
+  height: 310px;
 }
 .tall-cont
 {
@@ -302,6 +312,22 @@
 }
 #mapContainer
 {
+}
+
+@media (max-width: 370px)
+{
+  .stop-listing.tall
+  {
+    height: 330px;
+  }
+  .stop-listing button
+  {
+    margin-bottom: 10px;
+  }
+  .stop-listing button:last-of-type
+  {
+    margin-bottom: 0px;
+  }
 }
 
 @media (max-width: 450px)
