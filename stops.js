@@ -1,21 +1,15 @@
-function getStopLocation() {
-	var a = {};
-	
+var a = {};
+
+jQuery(function() {
 	$.getJSON('stops.json', function (data) {
 		$.each(data, function(i, field){
 			a[i] = field;
-			console.log(i);
-			console.log(field);
-			//$("posts").append(field + " ");
 		});
-		console.log(data);
-		console.log(a);
+});
 
-		
-		if (a['name'] === name) {
-			
-		}
-
-		//addPost(a['postid'], q, a['likes'], a['message']);
-	});
+function getStopLocation(stop) {
+	if (a['name'].indexOf(stop) > -1) {
+		return a['location'];
+	}
+	return false;
 }
