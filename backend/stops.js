@@ -1,7 +1,7 @@
 var a = [];
 
 jQuery(function() {
-	$.getJSON('stops.json', function (data) {
+	$.getJSON('backend/stops.json', function (data) {
 		$.each(data, function(i, field){
 			a[i] = field;
 		});
