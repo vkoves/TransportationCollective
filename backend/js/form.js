@@ -191,7 +191,7 @@ function issuesMap(options, element)
 
         var map = new google.maps.Map(element, mapOptions);
 
-        var geoJSON = [];
+        console.log(issueHash);
 
         for(location in issueHash)
         {
@@ -204,13 +204,6 @@ function issuesMap(options, element)
                 var latitude = parseFloat(latString);
                 var longitude = parseFloat(longString);
 
-                var obj = {};
-                obj["type"] = "Feature";
-                obj["geometry"] = {"type": "Point", "coordinates": [latitude, longitude]};
-                obj["properties"] = {"name": "Test"};
-
-                geoJSON.push(obj);
-
                 /*
                 var marker = new google.maps.Marker({
                     position: {lat: latitude, lng: longitude},
@@ -218,12 +211,26 @@ function issuesMap(options, element)
                     title: 'Hello World!'
                 });
                 */
+
+                var circle =  new google.maps.Circle({
+                  strokeColor: '#FF0000',
+                  strokeOpacity: 0.8,
+                  strokeWeight: 2,
+                  fillColor: '#FF0000',
+                  fillOpacity: 0.35,
+                  map: map,
+                  center: {lat: latitude, lng: longitude},
+                  radius: issueHash[location] * 500
+                });
+
                 dataT.addRow([latitude, longitude, location + "<br>" + "Issues: " + issueHash[location]]);
+            }
+            else
+            {
+                console.log("Invalid stop " + location);
             }
         }
 
-        console.log(geoJSON);
-        map.data.loadGeoJson(geoJSON);
         // var mapOptions = { showTip: true, mapType: "normal", enableScrollWheel: true };
 
         //var map = new google.visualization.Map(element);
