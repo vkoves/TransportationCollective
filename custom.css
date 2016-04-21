@@ -319,9 +319,9 @@
 
 /* Begin Pat CSS */
 
-.mdl-layout__header-row {
+.dl-layout__header, .mdl-layout__header--scroll, .mdl-color--primary {
 	background-color: #ed2024;
 }
-.mdl-layout__tab-bar {
+.mdl-layout__tab-bar-container {
 	background-color: #0b79bf;
 }
