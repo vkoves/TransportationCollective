@@ -1,3 +1,16 @@
+var circles = [];
+var currentCircle;
+var ctaColors = {
+    "red": "#c60c30",
+    "blue": "#00a1de",
+    "green": "#009b3a",
+    "purple": "#522398",
+    "brown": "#62361b",
+    "yellow": "#FBD704",
+    "orange": "#f9461c",
+    "pink": "#e27ea6"
+}
+
 function drawCharts() {
     pieIssuePerLine();
 
@@ -184,17 +197,22 @@ function issuesMap(options, element)
         }
 
         var mapOptions = {
-          zoom: 10,
+          zoom: 11,
           center: {lat: 41.8781, lng: -87.6298},
-          mapTypeId: google.maps.MapTypeId.NORMAL
+          mapTypeId: google.maps.MapTypeId.NORMAL,
+          disableDefaultUI: true
         };
 
         var map = new google.maps.Map(element, mapOptions);
+        var infoWindow = new google.maps.InfoWindow({});
+        infoWindow.setContent("<b>" + this.title + "</b>"); // set content
 
         for(location in issueHash)
         {
             var locArr = location.split(":");
-            var latLongString = getStopLocation(locArr[1].trim(), locArr[0].split(" ")[0]);
+            var currStop = locArr[1].trim();
+            var currLine = locArr[0].split(" ")[0];
+            var latLongString = getStopLocation(currStop, currLine);
             if(latLongString)
             {
                 var latString = latLongString.split(",")[0].replace(/["'()]/g,"");
@@ -202,23 +220,50 @@ function issuesMap(options, element)
                 var latitude = parseFloat(latString);
                 var longitude = parseFloat(longString);
 
-                /*
-                var marker = new google.maps.Marker({
-                    position: {lat: latitude, lng: longitude},
-                    map: map,
-                    title: 'Hello World!'
-                });
-                */
-
                 var circle =  new google.maps.Circle({
-                  strokeColor: '#FF0000',
-                  strokeOpacity: 0.8,
+                  strokeColor: "#FF0000", //ctaColors[currLine.toLowerCase()],
                   strokeWeight: 2,
-                  fillColor: '#FF0000',
-                  fillOpacity: 0.35,
+                  fillColor: "#FF0000", //ctaColors[currLine.toLowerCase()],
                   map: map,
                   center: {lat: latitude, lng: longitude},
-                  radius: issueHash[location] * 500
+                  radius: issueHash[location] * 750,
+                  line: currLine.toLowerCase(),
+                  text: location,
+                  issues: issueHash[location]
+                });
+                setCircleHover(circle, false);
+
+                circles.push(circle);
+
+                google.maps.event.addListener(circle,'mouseover',function(){
+                    currentCircle = this; //mark this as the current circle
+                    //reset other circle opacities
+                    for(var i = 0; i < circles.length; i++)
+                    {
+                        if(circles[i] != currentCircle)
+                            setCircleHover(circles[i], false);
+                    }
+                    infoWindow.open(map);
+
+                    setCircleHover(this, true);
+
+                    infoWindow.setPosition(this.getCenter()); // open at marker's location
+                    var issueText = "issue";
+
+                    if(this["issues"] > 1)
+                        issueText = issueText + "s";
+
+                    infoWindow.setContent("<div id='overlay-circle' class='circle " + this["line"] + "'></div>"
+                        + "<span id='overlay-text'><b>" + this["text"] + "</b> - " + this["issues"] + " " + issueText + "</span>");
+                });
+
+                //Hide infoWindow on mouse out
+                google.maps.event.addListener(circle,'mouseout',function(){
+                    //infoWindow.close();
+                });
+
+                google.maps.event.addListener(infoWindow,'closeclick',function(){
+                    setCircleHover(currentCircle, false);
                 });
 
                 dataT.addRow([latitude, longitude, location + "<br>" + "Issues: " + issueHash[location]]);
@@ -228,41 +273,29 @@ function issuesMap(options, element)
                 console.log("Invalid stop " + location);
             }
         }
-
-        // var mapOptions = { showTip: true, mapType: "normal", enableScrollWheel: true };
-
-        //var map = new google.visualization.Map(element);
-
-        map.data.setStyle(function(feature) {
-            console.log(feature);
-            var magnitude = feature.getProperty('mag');
-            return {
-                icon: getCircle(2)
-            };
-        });
-
-
-
-        //map.draw(dataT, mapOptions);
     });
 }
 
-function getCircle(magnitude) {
-  var circle = {
-    path: google.maps.SymbolPath.CIRCLE,
-    fillColor: 'red',
-    fillOpacity: .2,
-    scale: Math.pow(2, magnitude) / 2,
-    strokeColor: 'white',
-    strokeWeight: .5
-  };
-  return circle;
+/* Map Helpers */
+function setCircleHover(circle, hover)
+{
+    if(hover)
+    {
+        circle.setOptions({fillOpacity: 0.5});
+        circle.setOptions({strokeOpacity: 0.6});
+    }
+    else
+    {
+        circle.setOptions({fillOpacity: 0.15});
+        circle.setOptions({strokeOpacity: 0.2});
+    }
 }
-
 
 function recentIssues(limit, element)
 {
     var queryString = 'SELECT B, D, E, F'; //time, line, stop and incident type
+    if(limit)
+        queryString = queryString + " LIMIT " + limit;
 
     var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1oNIORrgb9beapo4S6AiRAwBZrEQ3U-OwYROQvPKnzdI/gviz/tq?gid=1575241258&headers=1&tq=' + queryString);
 

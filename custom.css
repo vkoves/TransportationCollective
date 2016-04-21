@@ -1,3 +1,7 @@
+#overview
+{
+  padding-top: 0px;
+}
 .mdl-layout.is-small-screen .mdl-layout--large-screen-only
 {
 	display: block !important;
@@ -95,6 +99,24 @@
 {
   font-weight: bold;
   font-size: 16px;
+}
+
+/* Map styling stuff */
+#mapContainer
+{
+  width: 100%;
+  height: 500px;
+}
+#overlay-circle
+{
+  float: left;
+  margin-right: 10px;
+}
+#overlay-text
+{
+  position: relative;
+  font-size: 16px;
+  top: 5px;
 }
 
 /* Stop Listing Main CSS */
