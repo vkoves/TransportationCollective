@@ -183,6 +183,14 @@ function issuesMap(options, element)
                 issueHash[location] = 1;
         }
 
+        var mapOptions = {
+          zoom: 10,
+          center: {lat: 41.8781, lng: -87.6298},
+          mapTypeId: google.maps.MapTypeId.NORMAL
+        };
+
+        var map = new google.maps.Map(element, mapOptions);
+
         for(location in issueHash)
         {
             var locArr = location.split(":");
@@ -193,23 +201,46 @@ function issuesMap(options, element)
                 var longString = latLongString.split(",")[1].replace(/["'()]/g,"");
                 var latitude = parseFloat(latString);
                 var longitude = parseFloat(longString);
+                var marker = new google.maps.Marker({
+                    position: {lat: latitude, lng: longitude},
+                    map: map,
+                    title: 'Hello World!'
+                });
                 dataT.addRow([latitude, longitude, location + "<br>" + "Issues: " + issueHash[location]]);
             }
         }
+        // var mapOptions = { showTip: true, mapType: "normal", enableScrollWheel: true };
 
-        var data = google.visualization.arrayToDataTable([
-            ['Country', 'Population'],
-            ['Belmont Red Line, Chicago IL', 'China: 1,363,800,000'],
-            ['Clark/Division Red Line, Chicago IL', 'China: 1,363,800,000']
-        ]);
+        //var map = new google.visualization.Map(element);
 
-        var mapOptions = { showTip: true, mapType: "normal", enableScrollWheel: true };
+        console.log(map);
 
-        var map = new google.visualization.Map(element);
+        map.data.setStyle(function(feature) {
+            console.log(feature);
+            var magnitude = feature.getProperty('mag');
+            return {
+                icon: getCircle(2)
+            };
+        });
 
-        map.draw(dataT, mapOptions);
+
+
+        //map.draw(dataT, mapOptions);
     });
 }
+
+function getCircle(magnitude) {
+  var circle = {
+    path: google.maps.SymbolPath.CIRCLE,
+    fillColor: 'red',
+    fillOpacity: .2,
+    scale: Math.pow(2, magnitude) / 2,
+    strokeColor: 'white',
+    strokeWeight: .5
+  };
+  return circle;
+}
+
 
 function recentIssues(limit, element)
 {
