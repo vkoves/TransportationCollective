@@ -8,9 +8,9 @@ jQuery(function() {
 	});
 });
 
-function getStopLocation(name) {
+function getStopLocation(name, line) {
 	for (var i = 0; i < a.length; i++) {
-		if (a[i]['name'].indexOf(name) > -1) {
+		if (a[i]['name'].indexOf(name) > -1 && a[i]['name'].indexOf(line) > -1) {
 			return a[i]['location'];
 		}
 	}
