@@ -1,5 +1,6 @@
 var userStops = [];
-var defaultStopCookie = "favoriteStops=red:Sox-35th,blue:Irving Park,green:35th-Bronzeville-IIT,purple:Linden,brown:Western,yellow:Skokie,pink:Cicero,orange:Midway";
+//var defaultStopCookie = "favoriteStops=red:Sox-35th,blue:Irving Park,green:35th-Bronzeville-IIT,purple:Linden,brown:Western,yellow:Skokie,pink:Cicero,orange:Midway";
+var defaultStopCookie = "favoriteStops=red:Red Line,blue:Blue Line,green:Green Line,purple:Purple Line,brown:Brown Line,yellow:Yellow Line,pink:Pink Line,orange:Orange Line";
 var stopCookie = "";
 var currentPage = "";
 
