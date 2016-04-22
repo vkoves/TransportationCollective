@@ -204,6 +204,8 @@ function issuesMap(options, element)
         };
 
         var map = new google.maps.Map(element, mapOptions);
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
         var infoWindow = new google.maps.InfoWindow({});
         infoWindow.setContent("<b>" + this.title + "</b>"); // set content
 
