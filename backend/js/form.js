@@ -233,6 +233,15 @@ function issuesMap(options, element)
                   text: location,
                   issues: issueHash[location]
                 });
+                var circleInner =  new google.maps.Circle({
+                  strokeColor: "#FF0000", //ctaColors[currLine.toLowerCase()],
+                  strokeWeight: 0,
+                  fillColor: "#FF0000", //ctaColors[currLine.toLowerCase()],
+                  fillOpacity: 0.5,
+                  map: map,
+                  center: {lat: latitude, lng: longitude},
+                  radius: 75,
+                });
                 setCircleHover(circle, false);
 
                 circles.push(circle);
