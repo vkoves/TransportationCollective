@@ -197,7 +197,7 @@ function issuesMap(options, element)
         }
 
         var mapOptions = {
-          zoom: 11,
+          zoom: 12,
           center: {lat: 41.8781, lng: -87.6298},
           mapTypeId: google.maps.MapTypeId.NORMAL,
           disableDefaultUI: true
