@@ -2,6 +2,13 @@
 {
   padding-top: 0px;
 }
+#logo
+{
+  display: none;
+  position: relative;
+  height: 34px;
+  top: -4px;
+}
 .mdl-layout.is-small-screen .mdl-layout--large-screen-only
 {
 	display: block !important;
@@ -356,7 +363,8 @@
   }
   .mdl-layout.is-small-screen .mdl-layout--large-screen-only h3
   {
-    line-height: 10px;
+    position: relative;
+    top: -10px;
   }
   #view-source
   {
@@ -387,7 +395,7 @@
 {
   .stop-listing.tall
   {
-    height: 330px;
+    height: 360px;
   }
   .stop-listing button
   {
@@ -435,8 +443,8 @@
 {
   position: fixed;
   display: block;
-  right: 0;
-  bottom: 0;
+  right: 8px;
+  bottom: 8px;
   margin-right: 40px;
   margin-bottom: 40px;
   z-index: 900;
