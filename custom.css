@@ -112,6 +112,10 @@
 }
 
 /* Map styling stuff */
+#mapTitler
+{
+  margin: 5px 0px;
+}
 #mapSection
 {
   background: white;
@@ -154,13 +158,21 @@
 }
 .stop-listing.tall
 {
-  height: 310px;
+  height: 325px;
 }
 .tall-cont
 {
   width: 100%;
   margin-top: 15px;
   height: 260px;
+}
+.tall-cont span
+{
+  position: relative;
+  top: -5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #8A8A8A;
 }
 .graph-cont
 {
@@ -320,6 +332,10 @@
 
 @media (max-width: 450px)
 {
+  #mapTitler
+  {
+    margin: 5px 15px;
+  }
   #mapSection
   {
     max-width: 85vw;

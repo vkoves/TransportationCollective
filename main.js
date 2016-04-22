@@ -184,6 +184,7 @@ function appendStopDiv(lineName, stopName)
 		endHTML = "<div class='delete'></div>";
 	else
 		endHTML = "<div class='arrow'></div><div class='tall-cont'>"
+			+ "<span>For the " + capitalizeFirstLetter(lineName) + " line</span><br>"
 			+ "<button id='issues' class='shadow'>Issues</button>"
 			+ "<button id='issue-types' class='shadow'>Issue Types</button>"
 			+ "<button id='issues-time' class='shadow'>Issues Over Time</button>"
