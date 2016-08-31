@@ -1,41 +1,8 @@
-# TransportationCollective
-An app for the Transportation Collective
+# Transportation Collective
+A big data collection and analysis website created specifically for collecting and viewing complaints and issues on the CTA.
 
-##Getting Started for IPRO folks
-Make sure you add this git as an origin
-```
-git remote add origin https://github.com/vkoves/TransportationCollective.git
-```
+Uses many different Google APIs to work with no backend database. Users submit issues into a Google Form, which places the data into a Google Sheet. This Google Sheet is then read through the Google Docs APIs and the data is visualized using the Google Graphing API and the Google Maps API.
 
-##Workflow
-- Pull from origin
-- Make changes
-- Push to origin
-- Push to Heroku
+The Transportation Collective website also uses cookies to store a users favorite stops on their local machine.
 
-See your changes on [Heroku](http://aqueous-wildwood-43521.herokuapp.com/)!
-
-
-# php-getting-started
-
-A barebones PHP app that makes use of the [Silex](http://silex.sensiolabs.org/) web framework, which can easily be deployed to Heroku.
-
-This application supports the [Getting Started with PHP on Heroku](https://devcenter.heroku.com/articles/getting-started-with-php) article - check it out.
-
-## Deploying
-
-Install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
-
-```sh
-$ git clone git@github.com:heroku/php-getting-started.git # or clone your own fork
-$ cd php-getting-started
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-
-## Documentation
-
-For more information about using PHP on Heroku, see these Dev Center articles:
-
-- [PHP on Heroku](https://devcenter.heroku.com/categories/php)
+Hosted on [Github Pages](https://pages.github.com/) through Viktor's website, find the website  [here](http://viktorkoves.com/TransportationCollective/).
